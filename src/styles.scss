@@ -1,0 +1,171 @@
+@import '~@angular/material/_theming.scss';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+$primary: mat-palette($mat-amber);
+$accent: mat-palette($mat-lime, A200, A100, A400);
+$theme: mat-dark-theme($primary, $accent);
+$custom-typography: mat-typography-config(
+  $font-family: 'Raleway, Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+@include mat-base-typography($custom-typography);
+@include angular-material-typography($custom-typography);
+@include angular-material-theme($theme);
+
+html, body {
+  background: #111;
+  color: #eee;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bolder;
+  line-height: 1em;
+  width: 400px;
+  margin: 32px auto;
+}
+
+h1:before, h1:after {
+  content: "";
+  display: inline-block;
+  background-color: #444;
+  width: 16px;
+  height: 16px;
+  margin: auto 16px;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  animation: rotating 5s linear infinite;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #181818;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #444;
+}
+
+img[src=""] {
+  display: none;
+}
+
+mat-tab-group {
+  height: 100vh;
+}
+
+.mat-tab-body-wrapper {
+  height: 100%;
+}
+
+.mat-tab-body-content {
+  display: flex;
+}
+
+.social svg {
+  width: 32px;
+  fill: #ccc;
+}
+
+.social a:nth-child(1) svg:hover {
+  fill: #47f !important;
+}
+
+.social a:nth-child(2) svg:hover {
+  fill: #e54 !important;
+}
+
+.social a:nth-child(3) svg:hover {
+  fill: #0ac !important;
+}
+
+.social a svg {
+  fill: #ccc;
+  width: 32px;
+  transition: 1s;
+}
+
+.snack {
+  width: auto !important;
+  margin: 16px auto !important;
+  background: #eee;
+  text-align: center !important;
+}
+
+#banner {
+  //animation: fade linear 1s !important;
+}
+
+#banner svg {
+  stroke: #111;
+  fill: whitesmoke;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  animation: logo ease-out 2s;
+  transition: .5s;
+}
+
+#banner svg:hover {
+  stroke-width: 64px;
+  transition: .5s;
+}
+
+@keyframes logo {
+  from {
+    transform: scale(.8) rotate(45deg);
+    stroke-width: 110px;
+  }
+  to {
+    transform: scale(1) rotate(45deg);
+    stroke-width: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes down {
+  from {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes up {
+  from {
+    transform: translateY(64px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

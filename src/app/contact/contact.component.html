@@ -1,0 +1,22 @@
+<form [formGroup]="contactFrom" #form="ngForm">
+  <mat-form-field>
+    <input matInput name="name" formControlName="name" placeholder="Name" required>
+    <mat-error>Name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="email" formControlName="email" placeholder="Email" required>
+    <mat-error>Invalid email</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput autosize [minRows]="5" [maxRows]="25" name="message" formControlName="message" placeholder="Message" required></textarea>
+    <mat-error>Message can't be empty</mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary" (click)="submit()"
+          [disabled]="isWaiting || contactFrom.invalid">
+    <mat-icon *ngIf="!isWaiting">send</mat-icon>
+    <mat-spinner *ngIf="isWaiting" mode="indeterminate" [diameter]="24"></mat-spinner>
+  </button>
+</form>

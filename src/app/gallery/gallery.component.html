@@ -1,0 +1,8 @@
+<div class="gallery">
+  <div matRipple  class="image" *ngFor="let image of images">
+    <img [src]="image.thumbnail" [alt]="image.title"/>
+    <a class="overlay" [href]="'https:/instagram.com/p/' + image.id"  target="_blank">
+      <span>{{image.title}}</span>
+    </a>
+  </div>
+</div>

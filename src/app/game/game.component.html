@@ -1,0 +1,31 @@
+<div class="game">
+  <img class="cover" [src]="'assets/games/'+game.alias+'/feature.png'" [alt]="game.name">
+  <div class="details">
+    <span>{{game.genre}}</span>
+    <p>{{game.description}}</p>
+  </div>
+  <div class="screenshots">
+    <div mat-ripple class="screenshot" *ngFor="let number of [1,2,3]"
+         (click)="index = number; popup.classList.add('active')">
+      <img [src]="'assets/games/'+game.alias+'/'+number+'.jpg'"/>
+    </div>
+  </div>
+  <div class="download">
+    <a *ngIf="game.links.android" [href]="game.links.android">
+      <img src="../../assets/badges/google.png" alt="Get it on Google Play">
+    </a>
+  </div>
+</div>
+
+<div class="popup" #popup>
+  <img [src]="'assets/games/'+game.alias+'/'+index+'.jpg'"/>
+  <button class="close" mat-mini-fab color="warn" (click)="popup.classList.remove('active')">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button class="next" mat-mini-fab color="primary" (click)="move(1)">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+  <button class="prev" mat-mini-fab color="primary" (click)="move(-1)">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,55 @@
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 32px 0;
+}
+
+.image{
+  position: relative;
+  display: flex;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.image img{
+  flex: 1;
+  width: 200px;
+}
+
+.overlay{
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .5s ease;
+  background-color: black;
+
+  display: flex;
+  align-items: center;
+}
+
+.overlay:hover {
+  opacity: .8;
+}
+
+span{
+  margin: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  background: #333;
+  padding: 2px 8px;
+  border-radius: 16px;
+  font-size: small;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+  text-decoration: none;
+}
