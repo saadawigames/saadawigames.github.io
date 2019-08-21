@@ -119,3 +119,10 @@ section {
   background: #222;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .icon, .icon img {
+    width: 48px;
+    height: 48px;
+  }
+}
