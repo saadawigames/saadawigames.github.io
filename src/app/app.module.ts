@@ -4,11 +4,11 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {
   MatButtonModule,
-  MatCardModule, MatChipsModule,
+  MatChipsModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatProgressSpinnerModule, MatRippleModule, MatSnackBarModule, MatTabsModule
+  MatProgressSpinnerModule, MatRippleModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -18,15 +18,35 @@ import {GameComponent} from './game/game.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {GalleryComponent} from './gallery/gallery.component';
 import {AutosizeModule} from 'ngx-autosize';
+import {RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import {PrototypeComponent, SafePipe} from './prototype/prototype.component';
+import { GenreComponent } from './genre/genre.component';
+
+const appRoutes: Routes = [
+  { path: 'prototypes', component: PrototypeComponent},
+  { path: 'game/:id', component: GameComponent},
+  { path: 'genre/:genre/:game', component: GenreComponent},
+  { path: 'genre/:genre', component: GenreComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: '**', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
     GameComponent,
-    GalleryComponent
+    GalleryComponent,
+    HomeComponent,
+    PrototypeComponent,
+    SafePipe,
+    GenreComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes
+    ),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -34,7 +54,7 @@ import {AutosizeModule} from 'ngx-autosize';
     AngularSvgIconModule,
     AutosizeModule,
     MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule, MatRippleModule, MatChipsModule,
-    MatTabsModule, MatSnackBarModule
+    MatTabsModule, MatSnackBarModule, MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+<button [routerLink]="[destination]" class="home" mat-icon-button color="accent">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<section id="games">
+  <div class="genre">
+    <div>{{genre}}</div>
+  </div>
+  <div class="icons">
+    <div [routerLink]="['/game', game.alias]" class="icon" mat-ripple *ngFor="let game of games">
+      <div>
+        <img [src]="'assets/games/'+game.alias+'/icon.png'" [alt]="game.name" matTooltip="{{game.name}}" matTooltipPosition="above">
+      </div>
+    </div>
+  </div>
+</section>

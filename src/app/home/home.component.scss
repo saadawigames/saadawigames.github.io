@@ -1,0 +1,103 @@
+//section {
+//  font-weight: normal;
+//  max-width: 700px;
+//  margin: auto;
+//  //width: 100%;
+//  padding: 0 32px;
+//}
+
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+}
+
+.saadawi {
+  display: flex;
+  flex: 1;
+  background: #111;
+  width: 100%;
+  min-height: 164px;
+}
+
+#banner {
+  max-width: 100px;
+  margin: auto;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+//#games {
+//  max-width: none;
+//  padding: 0;
+//  display: flex;
+//  flex-direction: column;
+//  overflow-x: hidden;
+//  position: absolute;
+//  left: 0;
+//  right: 0;
+//  bottom: 32px;
+//}
+
+#games:hover #game-icon{
+  animation: tilt 1s linear 0s infinite;
+}
+
+#game-icon{
+  position: relative;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotateZ(-5deg);
+  }
+  50% {
+    transform: rotateZ(5deg);
+  }
+  100% {
+    transform: rotateZ(-5deg);
+  }
+}
+
+#game-icon mat-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  background: #333;
+  padding: 0 12px;
+  margin-top: 28px;
+  border-radius: 8px;
+}
+
+/*
+.icon:hover {
+  border-radius: 40px;
+}
+*/
+
+.contact {
+  min-width: 64px;
+  min-height: 64px;
+  margin: 32px auto;
+  transform: scale(2);
+  display: block;
+}
+
+footer {
+  flex-direction: column;
+  text-align: center;
+  color: #444;
+  padding: 12px 2px 128px 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .avatar {
+    height: 300px;
+  }
+  #about div {
+    font-size: 1em;
+  }
+}

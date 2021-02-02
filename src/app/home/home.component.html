@@ -1,0 +1,32 @@
+<app-contact></app-contact>
+
+
+<section id="games">
+  <div id="game-icon">
+    <mat-icon>sports_esports</mat-icon>
+  </div>
+  <div class="icons">
+    <div [routerLink]="['/game', game.alias]" class="icon" mat-ripple *ngFor="let game of games">
+      <div>
+        <img [src]="'assets/games/'+game.alias+'/icon.png'" [alt]="game.name" matTooltip="{{game.name}}" matTooltipPosition="above">
+      </div>
+    </div>
+    <div routerLink="/prototypes" class="icon" mat-ripple>
+      <img src="assets/games/prototypes/icon.png" alt="prototypes" matTooltip="Prototypes" matTooltipPosition="above">
+    </div>
+  </div>
+</section>
+
+
+<div class="saadawi">
+  <div id="banner">
+    <svg-icon src="assets/saadawi.svg"></svg-icon>
+  </div>
+</div>
+
+<footer>
+  <!--<button routerLink="contact" class="contact" mat-icon-button color="primary">
+    <mat-icon>email</mat-icon>
+  </button>-->
+  {{copyright}}
+</footer>

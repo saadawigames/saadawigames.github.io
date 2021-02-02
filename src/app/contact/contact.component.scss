@@ -2,11 +2,18 @@ form {
   display: flex;
   flex-direction: column;
   margin: auto;
-  animation: down ease-in-out 1s;
+  animation: down ease-in 1s;
+  padding: 64px;
+  max-width: 700px;
 }
 
 textarea {
   height: 200px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 button {
@@ -14,6 +21,10 @@ button {
   width: 64px;
   border-radius: 32px;
   margin: auto;
+}
+
+.introduction{
+  padding-top: 64px;
 }
 
 .mat-icon {
@@ -26,4 +37,173 @@ button {
 
 .mat-form-field {
   margin-bottom: 8px;
+}
+
+.avatar {
+  height: 400px;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  margin: auto auto -64px;
+}
+
+.me {
+  animation: scale ease-in-out 1s;
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  padding: 0 24px;
+  z-index: 1;
+
+  font-size: xx-large;
+  text-align: center;
+}
+
+
+.avatar > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.avatar img {
+  width: 100%;
+  animation: avatarin ease-in-out 1s;
+  transition: 1s;
+  transform: scale(.7);
+  padding-top: 64px;
+}
+
+.avatar:hover img {
+  padding-top: 0;
+  transform: scale(1);
+}
+
+.avatar .overlay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(transparent, transparent, #111);
+}
+
+.social {
+  animation: fade ease-in-out 3s;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.social a {
+  padding: 0 8px;
+}
+
+.social div {
+  display: inline-block;
+}
+
+.social div:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.mat-chip-list {
+  display: block;
+  width: 200px;
+  margin: auto;
+}
+
+.mat-standard-chip {
+  background: #222;
+  cursor: pointer;
+}
+
+.clickme {
+  animation: scaleme linear 1s infinite;
+}
+
+.morebutton{
+  background: #222;
+  z-index: 1;
+}
+
+.more{
+  display: inline-block;
+  font-size: large;
+  text-align: left;
+  background: linear-gradient(#141414, #111);
+  padding: 24px 24px;
+  margin-top: -32px;
+  animation: more ease-in-out .3s;
+  height: 300px;
+  min-height: 300px;
+  border-radius: 16px 16px 0 0;
+}
+
+.more span {
+  background: #333;
+  color: #eee;
+  padding: 1px 12px;
+  margin: 0 2px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: .5s;
+}
+.more span:hover {
+  background: darkred;
+  color: lawngreen;
+}
+
+.more small{
+  font-size: small;
+}
+
+.more .extra{
+  border-left: solid #222 8px;
+  padding-left: 8px;
+  color: #ccc;
+}
+
+
+@keyframes more {
+  from {
+    transform: scale(1,0);
+    height: 0;
+  }
+  to {
+    transform: scale(1,1);
+    height: 300px;
+  }
+}
+
+@keyframes avatarin {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(.7);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleme {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

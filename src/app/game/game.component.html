@@ -1,31 +1,65 @@
-<div class="game">
-  <img class="cover" [src]="'assets/games/'+game.alias+'/feature.png'" [alt]="game.name">
-  <div class="details">
-    <span>{{game.genre}}</span>
-    <p>{{game.description}}</p>
-  </div>
-  <div class="screenshots">
-    <div mat-ripple class="screenshot" *ngFor="let number of [1,2,3]"
-         (click)="index = number; popup.classList.add('active')">
-      <img [src]="'assets/games/'+game.alias+'/'+number+'.jpg'"/>
+<button routerLink="" class="home" mat-icon-button color="accent">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div *ngIf="game != null">
+  <div class="game" [style.background-image]="game.style">
+
+    <div class="cover">
+    <!--
+      <img [src]="'assets/games/'+game.alias+'/feature.png'" alt=" " onerror="this.style.display='none'">
+    -->
+    </div>
+
+    <p>{{game.name}}</p>
+    <div class="icon">
+      <img [src]="'assets/games/'+game.alias+'/icon.png'" alt="game icon">
+    </div>
+
+    <div class="details">
+      <div mat-ripple *ngFor="let genre of game.genre" [routerLink]="['/genre', genre.toLocaleLowerCase().replace(' ', '-'), game.alias]"> {{genre}} </div>
+      <p>{{game.description}}</p>
+    </div>
+
+    <div *ngIf="game.control != null" class="control">
+      <img *ngFor="let control of game.control" [src]="'assets/controls/'+control+'.png'"
+           matTooltip="{{['Tap', 'Swipe', 'Swerve', 'Timing'][control]}}" matTooltipPosition="below">
+    </div>
+
+    <div class="screenshots">
+      <div mat-ripple class="screenshot" *ngFor="let screen of game.screenshots; let i = index"
+        (click)="current = i; popup.classList.add('active')">
+        <img [src]="'assets/games/'+game.alias+'/'+screen+'s.jpg'"/>
+      </div>
+    </div>
+
+    <a *ngIf="game.developer != null" href="{{game.developer.link}}">
+      <div  class="developer" >
+        <img mat-ripple [src]="'assets/'+game.developer.icon" [style.background]="game.developer.background"
+             matTooltip="{{game.developer.name}}" matTooltipPosition="right">
+      </div>
+    </a>
+    <div class="download">
+      <a *ngIf="game.links.android" [href]="game.links.android">
+        <img src="assets/badges/google2.png" alt="Get it on Google Play">
+      </a>
+      <a *ngIf="game.links.ios" [href]="game.links.ios">
+        <img src="assets/badges/apple2.png" alt="Coming Soon">
+      </a>
     </div>
   </div>
-  <div class="download">
-    <a *ngIf="game.links.android" [href]="game.links.android">
-      <img src="../../assets/badges/google.png" alt="Get it on Google Play">
-    </a>
-  </div>
-</div>
 
-<div class="popup" #popup>
-  <img [src]="'assets/games/'+game.alias+'/'+index+'.jpg'"/>
-  <button class="close" mat-mini-fab color="warn" (click)="popup.classList.remove('active')">
-    <mat-icon>close</mat-icon>
+  <div class="popup" #popup>
+  <div class="backdrop" (click)="popup.classList.remove('active')"></div>
+  <img [src]="'assets/games/'+game.alias+'/'+game.screenshots[current]+'.jpg'"/>
+  <div class="actions">
+  <button mat-mini-fab color="primary" (click)="move(-1)">
+  <mat-icon>chevron_left</mat-icon>
   </button>
-  <button class="next" mat-mini-fab color="primary" (click)="move(1)">
-    <mat-icon>chevron_right</mat-icon>
+  <button mat-mini-fab color="primary" (click)="move(1)">
+  <mat-icon>chevron_right</mat-icon>
   </button>
-  <button class="prev" mat-mini-fab color="primary" (click)="move(-1)">
-    <mat-icon>chevron_left</mat-icon>
-  </button>
+  </div>
+  </div>
+
 </div>

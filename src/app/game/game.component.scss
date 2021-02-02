@@ -4,130 +4,232 @@ h2 {
   margin: 0;
 }
 
-span {
-  color: #ccc;
-}
-
-p {
-  margin: 0;
-}
-
 .game {
-  padding: 0 32px 128px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // padding: 0 32px 32px 32px;
 }
 
-.cover {
-  width: 100%;
-  max-width: 512px;
-  margin: auto;
+.game p{
+  text-align: center;
+  font-size: x-large;
+  margin: 4px;
+  animation: cover ease-in .7s forwards;
+}
+
+.cover{
+  max-width: 100%;
+}
+
+.cover, .cover img {
+  margin: 0 auto;
+  height: 120px;
+  max-height: 256px;
+  max-width: 100%;
   display: block;
+}
+
+.cover img {
+  //margin-left: 50%;
+  transform: translateY(-100%);;
   object-fit: cover;
-  animation: down linear .7s;
+
+  animation: cover ease-in .7s forwards;
+}
+
+.icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  animation: scale ease-in .5s;
+  margin: 8px auto;
+  background: #eee5;
 }
 
 .details {
   width: 100%;
   text-align: center;
+  font-size: large;
   animation: scale ease-in .5s;
 }
-.download{
+
+.details div {
+  display: inline-block;
+  color: #eee;
+  background: #0004;
+  border-radius: 16px;
+  padding: 4px 12px;
+  margin: 0px 2px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.control{
+  display: flex;
+  margin: 0 auto;
+  animation: up ease-in .5s;
+}
+
+.control img{
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #eee5;
+  margin: 0 4px;
+  opacity: .7;
+  transition: .5s;
+}
+
+.control img:hover{
+  opacity: 1;
+}
+
+//.details p {
+//  margin: 4px;
+//}
+
+.download {
   display: flex;
   padding: 8px;
   animation: scale linear .5s;
   opacity: 0;
-  animation-delay: .5s;
   animation-fill-mode: forwards;
 }
 
 .download a {
   margin: auto;
+  opacity: .8;
+  transition: .5s;
+}
+
+.download a:hover {
+  opacity: 1;
+}
+
+.more {
+  margin: auto;
+  animation: scale ease-in 1s forwards;
 }
 
 .screenshots {
+  //width: 100%;
+  //max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  flex: 100% !important;
-  margin: 4px auto;
-  max-width: 700px;
+  flex-flow: wrap;
   justify-content: center;
-  animation: fade ease-in 1s;
 }
 
-.screenshot, .screenshot img {
-  width: 160px;
+.developer{
+  margin: auto;
+  display: flex;
+}
+
+.developer img{
+  margin: auto;
+  max-height: 32px;
+  background: white;
+  border-radius: 12px;
+  padding: 0 16px;
+  animation: cover ease-in .5s forwards;
+}
+
+.screenshot {
+  width: 169px;
+  height: 300px;
   margin: 4px;
-  border-radius: 4px;
+  display: inline-block;
+  border-radius: 12px;
+  //cursor: pointer;
+}
+
+.screenshot img {
+  opacity: 0;
+  width: 100%;
   object-fit: cover;
+  animation: fade ease-in .5s .5s forwards;
 }
 
-.screenshot{
-  cursor: pointer;
+.popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #111d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 3;
+
+  pointer-events: none;
+  opacity: 0;
+  padding-bottom: 64px;
+  padding-top: 8px;
+  transition: opacity .5s;
 }
 
-.popup{
+.popup.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.popup img {
+  margin: auto;
+  display: block;
+  transform: scale(.5);
+  border-radius: 8px;
+  height: 95%;
+  max-height: 914px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform .5s;
+
+}
+
+.popup.active img {
+  transform: scale(1);
+}
+
+.actions{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  margin: 16px 0;
+}
+
+.actions button{
+  margin: 0 8px;
+}
+
+.backdrop{
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(#0008, #111);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  z-index: 2;
-
-
-  pointer-events: none;
-  opacity: 0;
-  padding: 64px;
-  transition: opacity .5s;
-}
-.popup.active{
-  pointer-events: all;
-  opacity: 1;
 }
 
-.popup img{
-  transform: scale(.5);
-  border-radius: 8px;
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  transition: transform .5s;
-
-}
-.popup.active img{
-  transform: scale(1);
+@keyframes cover {
+  0%{transform: translateY(-100%)}
+  100%{transform: translateY(0%)}
 }
 
-.popup button{
-  position: absolute;
-}
-
-.popup .close{
-  right: 24px;
-  top: 24px;
-}
-
-.popup .next{
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.popup .prev{
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-@media only screen and (max-width: 600px) {
-  .screenshots img {
-    width: 90%;
-    margin: 5%;
-  }
-  .screenshot {
-    width: auto;
-  }
-}
-
+//@keyframes back {
+//  0%{background-position:0% 50%}
+//  50%{background-position:100% 50%}
+//  100%{background-position:0% 50%}
+//}
+//
+//@media only screen and (max-width: 900px) {
+//  .screenshot {
+//    width: 80%;
+//    margin: 8px auto;
+//    display: block;
+//  }
+//}

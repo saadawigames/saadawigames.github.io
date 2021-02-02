@@ -1,3 +1,68 @@
+<!--<button routerLink="" class="home" mat-icon-button color="accent">
+  <mat-icon>arrow_back</mat-icon>
+</button>-->
+
+<div class="introduction">
+  <div class="avatar">
+    <img src="assets/avatar.png">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="me">
+    <div>Hello!</div>
+    <div>I'm <strong>Saad</strong>, a passionate gamer and programmer who loves designing and developing games.
+    </div>
+    <div>
+      <button *ngIf="!showMore" mat-icon-button aria-label="more" (click)="show(true)" class="morebutton clickme">
+        <mat-icon >arrow_drop_down</mat-icon>
+      </button>
+      <button *ngIf="showMore" mat-icon-button aria-label="less" (click)="show(false)" class="morebutton">
+        <mat-icon >arrow_drop_up</mat-icon>
+      </button>
+      <div *ngIf="showMore" class="more">
+        <p>
+          I'm a <span>Moroccan</span> <em>Computer Science Engineer</em>, recently completed my degree at the
+          <a href="https://www.ensaf.ac.ma/"><strong>National School of Applied Sciences of Fez.</strong></a>
+        </p>
+        <p>
+          With more than <strong>1 year</strong>'s experience, I’m always eager to learn new things, leverage my skills and take on different challenges,
+          and I always like to put some extra time in polishing my work.
+        </p>
+        <p class="extra">
+          I strive to write <em>clean, readable and reusable</em> code.
+          I try to structure projects in the best possible way to make them scalable and easily maintainable.
+        </p>
+        <p class="extra">
+          In addition to programming, I have a decent experience with Photoshop, 3D-Modeling and Shaders. Also, <small>Web Developement</small>.
+        </p>
+      </div>
+    </div>
+    <div class="social">
+      <div>
+        <a href="https://www.facebook.com/elkhadersa" class="fb">
+          <svg-icon src="assets/social/facebook.svg"></svg-icon>
+        </a>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/elsaad007" class="ig">
+          <svg-icon src="assets/social/instagram.svg"></svg-icon>
+        </a>
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/in/elkhadersaad" class="lnk">
+          <svg-icon src="assets/social/linkedin.svg"></svg-icon>
+        </a>
+      </div>
+
+    </div>
+    <mat-chip-list>
+      <mat-chip color="primary">
+        <a [href]="'mailto:'+email"> {{email}} </a>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>
+<!--
 <form [formGroup]="contactFrom" #form="ngForm">
   <mat-form-field>
     <input matInput name="name" formControlName="name" placeholder="Name" required>
@@ -10,7 +75,8 @@
   </mat-form-field>
 
   <mat-form-field>
-    <textarea matInput autosize [minRows]="5" [maxRows]="25" name="message" formControlName="message" placeholder="Message" required></textarea>
+    <textarea matInput autosize [minRows]="5" [maxRows]="25" name="message" formControlName="message"
+              placeholder="Message" required></textarea>
     <mat-error>Message can't be empty</mat-error>
   </mat-form-field>
 
@@ -19,4 +85,4 @@
     <mat-icon *ngIf="!isWaiting">send</mat-icon>
     <mat-spinner *ngIf="isWaiting" mode="indeterminate" [diameter]="24"></mat-spinner>
   </button>
-</form>
+</form>-->
