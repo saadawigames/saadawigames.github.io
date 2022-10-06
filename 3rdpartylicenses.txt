@@ -91,6 +91,8 @@ MIT
 @angular/router
 MIT
 
+@scullyio/ng-lib
+
 angular-svg-icon
 MIT
 The MIT License (MIT)
